@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora_IMC_CAAR.Views.IMCCalculadoraPage"
+             xmlns:local="clr-namespace:Calculadora_IMC_CAAR.ViewModels"
+             Title="IMCCalculadoraPage">
+
+
+    <FlexLayout Padding="40"
+                Direction="Column"
+                JustifyContent="SpaceEvenly">
+        
+        <StackLayout>
+            <Label Text="IMC" FontSize="60" HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue"></Label>
+            
+            
+            <Label Text="Altura (cm)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+            <Entry Text="{Binding Altura}" FontSize="Large" TextColor="Red" FontAttributes="Bold"/>
+            <Stepper Value="{Binding Altura}" Minimum="20" Maximum="240" HorizontalOptions="Center"></Stepper>
+
+            
+            <Label Text="Peso (kg)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+            <Entry Text="{Binding Peso}" FontSize="Large" TextColor="Red" FontAttributes="Bold"/>
+            <Stepper Value="{Binding Peso}" Minimum="30" Maximum="320" HorizontalOptions="Center"></Stepper>
+
+        </StackLayout>
+    </FlexLayout>
+</ContentPage>

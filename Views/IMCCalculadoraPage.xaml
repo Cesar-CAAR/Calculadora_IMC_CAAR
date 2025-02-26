@@ -7,21 +7,25 @@
 
 
     <FlexLayout Padding="40"
-                Direction="Column"
+                Direction="Row"
                 JustifyContent="SpaceEvenly">
         
         <StackLayout>
             <Label Text="IMC" FontSize="60" HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue"></Label>
-            
-            
-            <Label Text="Altura (cm)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
-            <Entry Text="{Binding Altura}" FontSize="Large" TextColor="Red" FontAttributes="Bold"/>
+
+
+            <Label Text="Altura (cm)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" Margin="0,20,0,0"/>
+            <Entry Text="{Binding Altura}" FontSize="Large" TextColor="Red" FontAttributes="Bold" Keyboard="Numeric"/>
             <Stepper Value="{Binding Altura}" Minimum="20" Maximum="240" HorizontalOptions="Center"></Stepper>
 
-            
-            <Label Text="Peso (kg)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
-            <Entry Text="{Binding Peso}" FontSize="Large" TextColor="Red" FontAttributes="Bold"/>
+
+            <Label Text="Peso (kg)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" Margin="0,50,0,0"/>
+            <Entry Text="{Binding Peso}" FontSize="Large" TextColor="Red" FontAttributes="Bold" Keyboard="Numeric"/>
             <Stepper Value="{Binding Peso}" Minimum="30" Maximum="320" HorizontalOptions="Center"></Stepper>
+
+            <Label Text="{Binding IMCPuntuacion}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="25" TextColor="Green" Margin="0,15,0,15"/>
+            <Label Text="Resultado:" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" Margin="0,0,0,10"/>
+            <Label Text="{Binding IMCResultado}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="25" TextColor="Green"/>
 
         </StackLayout>
     </FlexLayout>

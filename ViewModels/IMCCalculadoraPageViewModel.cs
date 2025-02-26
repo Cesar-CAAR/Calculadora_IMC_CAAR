@@ -10,34 +10,41 @@ namespace Calculadora_IMC_CAAR.ViewModels
     public partial class IMCCalculadoraPageViewModel : ObservableObject
     {
         [ObservableProperty]
-        public double peso;
+        [NotifyPropertyChangedFor(nameof(IMCPuntuacion))]
+        [NotifyPropertyChangedFor(nameof(IMCResultado))]
+        private double peso;
 
         [ObservableProperty]
-        public double altura;
+        [NotifyPropertyChangedFor(nameof(IMCPuntuacion))]
+        [NotifyPropertyChangedFor(nameof(IMCResultado))]
+        private double altura;
 
-        public double IMCPuntuacion => Math.Round(Peso / Math.Pow(Altura / 100, 2), 2);
-
-
-        public string IMCDescripcion
+        public double IMCPuntuacion
         {
             get
             {
-                if (IMCPuntuacion < 18.5)
-                {
+                if (Altura <= 0)
+                    return 0; // Evita la división por cero
+                return Math.Round(Peso / Math.Pow(Altura / 100, 2), 2);
+            }
+        }
+
+        public string IMCResultado
+        {
+            get
+            {
+                double imc = IMCPuntuacion;
+                if (imc == 0)
+                    return "Altura no válida";
+
+                if (imc < 18.5)
                     return "Tienes bajo peso";
-                }
-                else if (IMCPuntuacion >= 18.5 && IMCPuntuacion <= 24.9)
-                {
+                else if (imc < 25)
                     return "Tu peso es normal";
-                }
-                else if (IMCPuntuacion >= 25 && IMCPuntuacion <= 29.9)
-                {
-                    return "Tienes sobre peso";
-                }
+                else if (imc < 30)
+                    return "Tienes sobrepeso";
                 else
-                {
-                    return "Tienes Obesidad, cuidate";
-                }
+                    return "Tienes obesidad, cuídate";
             }
         }
     }

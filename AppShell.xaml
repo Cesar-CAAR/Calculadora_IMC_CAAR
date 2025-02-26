@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate views:EmployeePage}"
+        ContentTemplate="{DataTemplate views:IMCCalculadoraPage}"
         Route="MainPage" />
 
 </Shell>
